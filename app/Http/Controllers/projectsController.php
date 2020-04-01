@@ -20,13 +20,7 @@ class projectsController extends Controller
 
     public function add(Request $request) {
    	
-    	$request->validate([
-        'nom' => 'required',
-        'descripcio' => 'required',
-        'dataInici' => 'required|date|after:now',
-        'dataFi' => 'required|date|after:dataInici',
-        'estat' => 'required|numeric',
-        ]);
+    	
 
     	$nom = $request->nom;   	
         $descripcio = $request->descripcio;
