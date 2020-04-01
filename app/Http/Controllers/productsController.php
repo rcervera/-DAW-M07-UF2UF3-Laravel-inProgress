@@ -32,6 +32,10 @@ class productsController extends Controller
         'preu.min' => 'El preu ha de ser positiu!'
 
         ];
+
+        // Al metode Validate li passem com a segon paràmetre l'array 
+        // anterior
+        
         $request->validate([
         'nom' => 'required|max:25',
         'preu' => 'required|numeric|min:0',
