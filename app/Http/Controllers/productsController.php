@@ -9,8 +9,15 @@ class productsController extends Controller
 {
     //
     public function llistat() {    	
-    	//$productes = Product::all();
+    	// Enlloc de recuperar tots els productes
+        //$productes = Product::all();
+
+        // Els recuperem paginats de 5 en 5
         $productes = Product::paginate(5);
+
+        // Haurem d'afegir a la vista els enllaços per anar a 
+        // cada una de les pàgines
+
     	return view('productes.llistat',["productes"=>$productes]);   	
     }
 

@@ -19,6 +19,8 @@
     	@endforeach
     	
 	</table>
+
+	<!-- línia per mostrar els enllaços -->
 	{{ $productes->links() }}
 
 	@if(session('status'))

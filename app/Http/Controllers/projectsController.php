@@ -20,7 +20,23 @@ class projectsController extends Controller
 
     public function add(Request $request) {
    	
-    	
+   		$messages = [
+        'required' => 'El camp :attribute és obligatori.',
+        'date' => 'El camp :attribute ha de ser una data correcte',
+        'dataInici.after' => 'La data d\'inici ha de ser posterior al dia d\'avui',
+        'dataFi.after' => 'La data final ha de ser posterior a la data d\'inici',
+        'estat.integer'=>'Estat ha de ser un enter positiu',
+        'estat.min'=>'Estat ha de ser un enter entre 1 i 3',
+        'estat.max'=>'Estat ha de ser un enter entre 1 i 3',
+        ];
+
+    	$request->validate([
+        'nom' => 'required',
+        'descripcio' => 'required',
+        'dataInici' => 'required|date|after:now',
+        'dataFi' => 'required|date|after:dataInici',
+        'estat' => 'required|integer|min:1|max:3',
+        ],$messages);
 
     	$nom = $request->nom;   	
         $descripcio = $request->descripcio;
